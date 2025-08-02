@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  drawflow:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./dist:/usr/share/nginx/html/dist
+      - ./src:/usr/share/nginx/html/src
+      - ./docs:/usr/share/nginx/html/docs
+      - ./index.html:/usr/share/nginx/html/index.html
+      - ./test.html:/usr/share/nginx/html/test.html
+    environment:
+      - NGINX_HOST=0.0.0.0
+      - NGINX_PORT=80
